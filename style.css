@@ -1,8 +1,147 @@
-.fond {
-  background-color: #65c6bb;
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@200;400;600;800&display=swap');
 
+:root {
+    --dark: #22211d;
+    --blue: #6492b4;
+    --light: #c7d4dc;
+    --white: #ffffff;
+}
+
+* {
+    margin: 0px;
+    padding: 0px;
+    font-family: 'Poppins', sans-serif;
+    scroll-behavior: smooth;
+    color: var(--light);
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+}
+
+a {
+    text-decoration: none;
+    color: var(--light);
+    transition: .3s ease;
+}
+
+a:hover {
+    color: var(--white);
+}
+
+.header-top {
+    position: sticky;
+    top: 0;
+    background-color: var(--dark);
+    padding: 10px 30px;
+    box-shadow: 0px 10px 20px 5px rgba(0, 0, 0, .4);
+    z-index: 1000;
+}
+
+.header-scroll {
+    position: sticky;
+    top: 0;
+    background: none;
+    padding: 10px 30px;
+}
+
+h1 {
+    text-transform: uppercase;
+    font-weight: 200;
+}
+
+h2 {
+    text-transform: uppercase;
+    font-weight: 400;
+    color: var(--light);
+    padding-top: 80px;
+}
+
+strong {
+    font-weight: 600;
+    transition: .3s ease;
+}
+
+strong:hover {
+    color: var(--white);
+}
+
+/* HEADER */
+
+.menu-container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    z-index: 1000;
+}
+
+@media screen and (max-width: 700px) {
+    .menu-container {
+        flex-direction: column;
+    }
+}
+
+.droite a {
+    padding: 10px;
+}
+
+/* ACCUEIL */
+
+.home-vid {
+    width: 100%;
+    display: block;
+}
+
+/* FORMATIONS */
+
+#formations {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    background-color: var(--dark);
+    padding-bottom: 200px;
+}
+
+.f-section {
+    width: 500px;
+    height: 500px;
+    border-radius: 5px;
+    overflow: hidden;
+    transition: ease .3s;
+}
+
+.overlay {
+    position: relative;
+    bottom: 100%;
+    left: 0;
+    right: 0;
+    overflow: hidden;
+    width: 100%;
+    height: 0;
+    transition: .5s ease;
+  }
+
+.f-section:hover .overlay {
+    bottom: 0;
+    height: 100%;
+    transform:translate(0%, -100%);
+}
+
+.f-section .text {
+    text-align: center;
+    font-size: 2rem;
+}
+
+.f-section img {
+    height: 100%;
+    position: relative;
+    top:50%;
+    left:50%;
+    transform:translate(-50%, -50%);
+    transition: ease .3s;
+}
+
+.fond {
   width: 80%;
-  height: 100vh;
   box-sizing: border-box;
   padding: 10%;
   margin: auto;
@@ -11,6 +150,7 @@
   justify-content: center;
   align-items: center;
   flex-wrap: wrap;
+  overflow: hidden;
 }
 
 .carreaux_presentation_light {
@@ -27,15 +167,13 @@
 
 .carreaux_presentation_light:hover {
   filter: saturate(1);
-  width: 300px;
 }
 
 .carreaux_presentation_light .deroul_titre {
   position: absolute;
   text-transform: uppercase;
-  font-family: "Roboto";
   padding: 7px;
-  z-index: 1000;
+  z-index: 100;
   top: 60%;
   left: -80%;
   color: #ffffff;
@@ -55,23 +193,51 @@
 
 .carreaux_presentation_light .deroul_soustitre {
   position: absolute;
-  font-family: "Roboto";
-  padding: 5px;
-  z-index: 1000;
-  bottom: 0;
-  right: -85%;
-  margin-top: 25px;
+  z-index: 100;
+  bottom: -100%;
+  right: 0%;
   color: #ffffff;
-  font-weight: 300;
-  font-size: 1rem;
+  font-weight: 600;
+  font-size: 1.5rem;
+  line-height: 250px;
   width: 100%;
-  -webkit-transition: all 0.7s;
-  -moz-transition: all 0.7s;
-  -ms-transition: all 0.7s;
-  transition: all 0.7s;
+  height: 100%;
+  -webkit-transition: all 0.5s;
+  -moz-transition: all 0.5s;
+  -ms-transition: all 0.5s;
+  transition: all 0.5s;
 }
 
 .carreaux_presentation_light:hover .deroul_soustitre {
-  background: rgba(10, 10, 10, 0.5);
-  right: 0px;
+  background: rgba(10, 10, 10, 0.2);
+  bottom: 0px;
+}
+
+/* LIENS */
+
+
+#liens {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    background-color: var(--blue);
+    color: var(--dark);
+    height: 100vh;
+}
+
+#contact {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    background-color: var(--light);
+    color: var(--dark);
+    height: 100vh;
+}
+
+/* FOOTER */
+
+footer {
+    display: flex;
+    background-color: var(--dark);
+    height: 100px;
 }
